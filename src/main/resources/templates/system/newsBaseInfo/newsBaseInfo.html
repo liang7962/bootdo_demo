@@ -19,17 +19,17 @@
 													<input id="newsTitle" type="text" class="form-control" name="newsTitle">
 												</div>
 											</div>
-											<!--<div class="col-sm-6 col-md-3">
+											<div class="col-sm-6 col-md-3">
 												<label class="col-sm-4 control-label no-padding-right">新闻类别</label>
 												<div class="col-sm-8">
 													<select id="newsCategory" name="newsCategory" class="form-control chosen-select" tabindex="2"
 															required>
-														<option value="">&#45;&#45;请选择&#45;&#45;</option>
+														<option value="">--请选择--</option>
 														<option th:each="type:${#dict.getDictList('news_category')}"
 																th:value="${type.value}" th:text="${type.name}"></option>
 													</select>
 												</div>
-											</div>-->
+											</div>
 
 											<div class="col-sm-6 col-md-12 text-center" style="margin-top: 20px;">
 												<div class="pull-left">

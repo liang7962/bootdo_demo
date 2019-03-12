@@ -15,14 +15,14 @@
 								<div class="col-sm-3">
 									<input id="newsTitle" name="newsTitle" th:value="${newsBaseInfo.newsTitle}" class="form-control" type="text">
 								</div>
-								<!--<label class="col-sm-3 control-label">新闻类别：</label>
+								<label class="col-sm-3 control-label">新闻类别：</label>
 								<div class="col-sm-3">
 									<select id="newsCategory" name="newsCategory"  class="form-control chosen-select" tabindex="2"
 											th:field="${newsBaseInfo.newsCategory}">
 										<option th:each="type:${#dict.getDictList('news_category')}"
 												th:value="${type.value}" th:text="${type.name}"></option>
 									</select>
-								</div>-->
+								</div>
 							</div>
 														<div class="form-group">	
 								<label class="col-sm-3 control-label">内容：</label>
