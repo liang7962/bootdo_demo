@@ -2,6 +2,7 @@ package com.bootdo.system.domain;
 
 import com.bootdo.common.utils.IdGen;
 import com.bootdo.common.utils.ShiroUtils;
+import com.bootdo.common.utils.excle.annotation.ExcelField;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,8 +21,10 @@ public class NewsBaseInfoDO implements Serializable {
 	//新闻表主键
 	private String id;
 	//新闻表标题
+	@ExcelField(title="新闻表标题", align=2, sort=6)
 	private String newsTitle;
 	//内容
+	@ExcelField(title="内容", align=2, sort=6)
 	private String content;
 	//政策类别
 	private String newsCategory;

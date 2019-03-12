@@ -32,16 +32,17 @@
 											</div>-->
 
 											<div class="col-sm-6 col-md-12 text-center" style="margin-top: 20px;">
-												<!--<div class="pull-left">
-													<button shiro:hasPermission="system:policyBaseInfo:add" type="button" class="btn  btn-primary" onclick="add()">
-														<i class="fa fa-plus" aria-hidden="true"></i>添加
+												<div class="pull-left">
+													<input class="avatar-input" id="logoInput" name="avatar_file" type="file" style="display: inline-block;">
+													<button  type="button" class="btn  btn-primary" onclick="importFile()">
+														<i class="fa fa-plus" aria-hidden="true"></i>导入
 													</button>
-												</div>-->
+												</div>
 												<button shiro:hasPermission="system:newsBaseInfo:add" type="button" class="btn  btn-primary" onclick="add()">
 													<i class="fa fa-plus" aria-hidden="true"></i>添加
 												</button>
 												<button type="button" class="btn btn-primary" onclick="reLoad();">查询</button>
-												<!--<button type="button" class="btn btn-primary" onclick="exportExcel();">导出</button>-->
+												<button type="button" class="btn btn-primary" onclick="exportExcel();">导出</button>
 
 											</div>
 										</div>

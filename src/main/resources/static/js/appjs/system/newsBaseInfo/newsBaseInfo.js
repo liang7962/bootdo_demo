@@ -4,6 +4,36 @@ $(function() {
 	load();
 });
 
+function exportExcel() {
+    $("#SearchEqu").attr("action",prefix+"/export");
+    $("#SearchEqu").submit();
+}
+
+function importFile() {
+    var form = new FormData();
+    var file=document.getElementById("logoInput").files[0];
+    form.append('file',file);
+    $.ajax({
+        cache : true,
+        type : "POST",
+        url : prefix+"/importFile",
+        data : form,
+        processData:false,
+        contentType:false,
+        error : function() {
+            layer.alert("Connection error");
+        },
+        success : function(data) {
+            if (data.code == 0) {
+                layer.msg(data.msg);
+                reLoad();
+            } else {
+                layer.alert(data.msg)
+            }
+
+        }
+    });
+}
 function load() {
 	$('#exampleTable')
 			.bootstrapTable(
