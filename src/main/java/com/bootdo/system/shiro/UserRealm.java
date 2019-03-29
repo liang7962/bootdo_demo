@@ -46,7 +46,6 @@ public class UserRealm extends AuthorizingRealm {
 		Map<String, Object> map = new HashMap<>(16);
 		map.put("username", username);
 		String password = new String((char[]) token.getCredentials());
-
 		UserDao userMapper = ApplicationContextRegister.getBean(UserDao.class);
 		// 查询用户信息
 		UserDO user = userMapper.list(map).get(0);

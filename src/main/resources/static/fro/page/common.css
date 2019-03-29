@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*全局样式*/
+*{margin:0;padding:0;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;}
+ul,li,dl,ol{list-style:none;}
+a{text-decoration:none;outline:none;cursor:pointer;}
+a,img,button,input,textarea,li{-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-appearance:none;border:none;outline:none;}
+img{vertical-align:middle;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+.h-center{width:1190px;margin:0 auto;}
+.drift-left{float:left;}
+.drift-right{float:right;}
+.clear{clear:both;}
+/*End 全局样式*/
+/*头部公用*/
+.header-bg{height: 35px; background:#363636; line-height:35px;}
+.header-content{font-size: 12px;text-align:center}
+.header-left li,.header-right li{float:left;}
+.header-content a{color: #fff;}
+.header-left li{width:80px;}
+.header-right li{width:100px;}
+.msg-icon{margin-left:5px;}
+.website-nav li{float:none;}
+.web-nav{position:relative;}
+.website-nav{background:#363636;display:none;position:absolute;}
+.website-nav li a{color:#fff;display:block;}
+.website-nav li a:hover{background:#000;}
+.web-nav:hover .website-nav{display:block;margin:0;padding:0;}
+.web-nav>a{background:url(../../images/voc-img_06.png) no-repeat right center;padding-right:10px;}
+.header-logo{height:100px;line-height:100px;vertical-align: middle;}
+.voc-logo{width:310px;height:72px;}
+.voc-logo img{width:100%;}
+.header-nav li{float:left;}
+.header-nav{margin-left:60px;margin-top:30px;}
+.header-nav li a{float:left;display:block;padding:0px 20px;font-size:16px;color:#333;height:40px;line-height:40px;}
+.nav-hover{background:#3d9c42;color:#fff !important;border-radius:20px;}
+/*End 头部公用*/
+/*底部公用*/
+.footer{padding:20px 0;}
+.friendlink h5,.friendlink li{float:left;font-size:16px;color:#333;}
+.friendlink{overflow:hidden;}
+.friendlink li a{color:#333;}
+.friendlink li{margin:0 15px;}
+.voc-bottom{width:660px;margin:20px auto 0;text-align:center;}
+.web-bottom li{float:left;}
+.web-bottom{overflow:hidden;font-size:16px;color:#333;}
+.copyright{font-size:14px;color:#4b4b4b;margin-bottom:5px;}
+.web-bottom img{margin-right:10px;float:left;}
+.web-bottom span{margin-top:5px;display:block;float:left;}
+.web-bottom li{margin-right:20px;}
+.web-bottom li:last-child{margin-right:0;}
+/*End 底部公用*/
+
+

@@ -1,0 +1,68 @@
+<!--头部公用-->
+<nav th:fragment="nav">
+    <div class="header-bg">
+        <div class="h-center header-content">
+            <ul class="header-left drft-left">
+                <li th:if="${#userUtils.getUserT()==null}"><a href="/log/login/view" class="menu-tab">登录</a></li>
+                <li th:if="${#userUtils.getUserT()==null}"><a href="/register/index" class="menu-tab">免费注册</a></li>
+                <li th:if="${#userUtils.getUserT()!=null}">
+
+                    <input type="hidden" th:value="${#userUtils.getUserT().getUsername()}" id="userName" />
+                    <a th:if="${#userUtils.getUserT().getUsername()!='admin'}" href="/adminIndex" class="menu-tab" th:text="${#userUtils.getUserT().getUsername()}"></a>
+                    <a th:if="${#userUtils.getUserT().getUsername()=='admin'}" href="/adminIndex" class="menu-tab" th:text="${#userUtils.getUserT().getUsername()}"></a>
+                </li>
+                <li th:if="${#userUtils.getUserT()!=null}"><a href="/logout" class="menu-tab">退出</a></li>
+            </ul>
+            <ul class="header-right drift-right">
+                <li><a href="/">网站首页</a></li>
+                <li><a href="#">邮箱</a></li>
+                <li><a href="#">电话</a></li>
+                <li class="web-nav">
+                    <a href="#">网站导航</a>
+                    <ul class="website-nav">
+                        <li><a href="/info/loadInfoList">英山人文</a></li>
+                        <li><a href="/fro/specification/view">英山风景</a></li>
+                        <li><a href="/fro/analysis/view">英山风采</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<div class="h-center header-logo">
+    <div class="voc-logo drift-left">
+        <img src="/fro/images/my/ys.jpg">
+    </div>
+    <ul class="header-nav drift-left">
+        <li><a href="/info/loadInfoList">英山人文</a></li>
+        <li><a href="/fro/specification/view">英山风景</a></li>
+        <li><a href="/fro/analysis/view">英山风采</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div>
+</nav>
+<!--底部公用-->
+<div th:fragment="footer">
+    <div class="h-center footer">
+        <ul class="friendlink">
+            <h5>友情链接：</h5>
+            <li><a href="http://www.samr.gov.cn/">国家市场监督管理总局</a></li>
+            <li><a href="https://www.sgs.gov.cn/">上海市市场监督管理局</a></li>
+            <li><a href="http://www.sqi.com.cn/">上海市质量监督检验技术研究院</a></li>
+            <li><a href="http://www.nfqsc.org/">国家家具质量监督检验中心</a></li>
+        </ul>
+        <div class="voc-bottom">
+            <div class="copyright">VOCs版权所有 Copyright©2017-2019 湘ICP备14005623号</div>
+            <div class="copyright">
+                <span>地址：上海市闵行区江月路900号</span>
+                <span>技术支持：上海牵翼网络科技有限公司 </span>
+            </div>
+            <ul class="web-bottom">
+                <li><img src="/frontdesk/images/voc-img_25.png"><span>网络工商</span></li>
+                <li><img src="/frontdesk/images/voc-img_27.png"><span>网络警察提醒您</span></li>
+                <li><img src="/frontdesk/images/voc-img_30.png"><span>网络举报app下载</span></li>
+                <li><img src="/frontdesk/images/voc-img_32.png"><span>中国互联网举报中心</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
