@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>首页</title>
+  <link rel="stylesheet" href="/fro/page/common.css" th:src="@{/fro/page/common.css}" />
+  <link rel="stylesheet" href="/fro/page/page.css" th:src="@{/fro/page/page.css}"/>
+
+
+  <!-- 自定义js -->
+  <script th:inline="javascript"> var ctx = [[@{/}]] ; </script>
+  <script src="/fro/js/jquery-1.9.1.js" th:src="@{/fro/js/jquery-1.9.1.js}"></script>
+  <script src="/fro/js/page/common.js" th:src="@{/fro/js/page/common.js}"></script>
+  <script src="/fro/js/page/page.js" th:src="@{/fro/js/page/page.js}"></script>
+
+  <!-- ECharts -->
+  <script src="/js/plugins/echarts/echarts-all.js" th:src="@{/js/plugins/echarts/echarts-all.js}"></script>
+  <script src="/fro/js/plugins/echarts.min.js" th:src="@{/fro/js/plugins/echarts.min.js}"></script>
+  <script src="/fro/js/plugins/china.js" th:src="@{/fro/js/plugins/china.js}"></script>
+
+  <script src="/js/plugins/validate/jquery.validate.min.js" th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+  <script src="/js/plugins/validate/messages_zh.min.js" th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
+  <script src="/js/plugins/layer/layer.min.js" th:src="@{/js/plugins/layer/layer.min.js}"></script>
+
+  <!-- ECharts -->
+  <style>
+    .error{color:#e70909;font-size:14px;}
+  </style>
+</head>
+<body>
+<nav th:include="fro/header/include_header::nav"  class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
+  <!--End 头部公用-->
+  <!--banner-->
+  <div class="banner-bg">
+    <div class="h-center">
+      <div class="login drift-right">
+        <div th:if="${#userUtils.getUserT()==null}">
+          <h5 class="login-title">用户登录</h5>
+          <div class="login-bottom">
+            <form class="login-content" id="login-content">
+              <div class="login-user">
+                <img src="/fro/images/voc-img_15.png">
+                <span class="lg-line"></span>
+                <input type="text" placeholder="用户名/手机号" name="username">
+              </div>
+              <div class="login-user">
+                <img src="/fro/images/voc-img_18.png">
+                <span class="lg-line"></span>
+                <input type="password"  name="password" placeholder="请输入密码">
+              </div>
+              <div class="rember">
+                <div class="rember-left drift-left">
+                  <input type="checkbox" name="rememberMe">
+                  <label>记住我</label>
+                </div>
+                <a class="rember-right drift-right" href="#">忘记密码</a>
+              </div>
+              <a href="#" id="login" class="login-btn">登录</a>
+              <a href="/register/index" class="register-btn">免费注册>></a>
+            </form>
+          </div>
+        </div>
+        <div th:if="${#userUtils.getUserT()!=null}">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End banner-->
+  <!--content-->
+  </div>
+</div>
+  <!--End content-->
+<div th:include="fro/header/include_header::footer"></div>
+
+  <!--End 底部公用-->
+  <!--文字滚动js-->
+  <script type="text/javascript">
+    $(function() {
+      $(".demon-word").myScroll({
+        speed: 40,
+        rowHeight: 25
+      });
+    });
+  </script>
+  <!--End 文字滚动js-->
+  <!--地图-->
+<script>
+    $(document).ready(function () {
+        $("#login").on('click',function(){
+            $('#login-content').submit();
+        });
+        validateRule();
+        $("body").keydown(keyDownLogon);
+    });
+    $.validator.setDefaults({
+        submitHandler: function () {
+            login();
+        }
+    });
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: ctx+"log/login",
+            data: $('#login-content').serialize(),
+            success: function (r) {
+                if (r.code == 0) {
+                    parent.location.href = '/';
+                }else if(r.code == 1){
+                    parent.location.href = r.msg;
+                } else {
+                    layer.msg(r.msg);
+                }
+            },
+        });
+    }
+
+    function keyDownLogon(){
+        if (event.keyCode == "13") {
+            $("#login").trigger('click');
+        }
+    }
+
+    function validateRule() {
+        var icon = "<i class='fa fa-times-circle'></i> ";
+        $("#login-content").validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                username: {
+                    required: icon + "请输入您的用户名",
+                },
+                password: {
+                    required: icon + "请输入您的密码",
+                }
+            }
+        })
+    }
+  </script>
+  <script th:inline="javascript"></script>
+
+
+  <!--End 地图-->
+</body>
+
+</html>
